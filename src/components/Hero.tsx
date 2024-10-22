@@ -1,50 +1,51 @@
 "use client";
 import React from "react";
-import BlurIn from "./magicui/blur-in";
-import { AuroraBackground } from "./ui/aurora-background";
-import { motion } from "framer-motion";
-import Image from "next/image"
-import { TypewriterEffect } from "@/components/ui/Typewriter-effect";
-import userImage from "@/Image/userImage.png"
+import Spline from "@splinetool/react-spline";
+import TypingAnimation from "@/components/ui/typing-animation.tsx";
+import Loading from "../components/Loading/Loading.jsx";
+import { TbBrandTypescript } from "react-icons/tb";
 
 export default function Hero() {
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  // React.useEffect(() => {
+  //   const timeout = setTimeout(() => setIsLoading(false), 3000); // Simulate loading for 2 seconds
+  //   return () => clearTimeout(timeout);
+  // }, []);
+
   return (
-    <AuroraBackground>
-       <motion.div
-        initial={{ opacity: 0.0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        className="relative flex w-full gap-4 items-center justify-center px-4"
-      >
-      <div className="w-full lg:w-[45%]  h-20 mt-44 pl-20">
-      <div className="flex">
-      <p className=" text-white font-bold inter-var">
-      <BlurIn
-      word="I am Zaheer khan"
-      className=" font-bold text-black dark:text-white"
-    />
-      </p>
-      <p className="text-base mt-4 text-white font-normal inter-var text-center ml-4">
-      <BlurIn
-      word={
-        <TypewriterEffect
-        className="text-5xl font-bold "
-        words={["Software Engineer", "Frontend Developer", "Backend Developer"]}
-      />
-      }
-      className=" font-bold text-black dark:text-white"
-    />
-      </p>
-      </div>
-      </div>
-      <div className="w-[25rem] h-[25rem] mt-20 ml-12 hidden lg:block">
-        <Image src={userImage} alt="User Image" layout="responsive" />
-      </div>
-      </motion.div>
-    </AuroraBackground>
+    <div className="h-screen bg-[#000319] flex items-center justify-center">
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="w-full h-screen relative">
+          <div className=" rounded-xl text-white text-xl w-[23rem] h-[18rem] z-0 absolute top-[10rem] left-1/2 transform translate-x-[18rem] bg-[#22272E] bg-opacity-60">
+            <div className="w-full h-12 bg-[#2F343A] flex items-center rounded-t-lg ">
+              <div className="h-4 w-4 rounded-full bg-red-500 ml-2"></div>
+              <div className="h-4 w-4 rounded-full bg-yellow-500 ml-2"></div>
+              <div className="h-4 w-4 rounded-full bg-green-500 ml-2"></div>
+              <div className="ml-10 border-r border-l border-t w-40 h-10 mt-1 rounded-t-lg flex items-end gap-1 justify-center">
+                <p className="w-7 h-7 text-end bg-blue-400 text-white ml-1 rounded-md pt-2 text-sm pr-1">
+                  TS
+                </p>
+                <p className="text-sm text-mono">helloworld.ts</p>
+              </div>
+            </div>
+            <div className="pt-3 text-stat">
+            <TypingAnimation
+              className="text-xl text-start pl-5 font-bold text-gray-400"
+              text={[
+                "Hello, Welcome Sir",
+                "Zaheer khan this side",
+                "Software Engineer",
+                "Software Developer",
+              ]}  
+            />
+            </div>
+          </div>
+          <Spline scene="https://prod.spline.design/Fg9kkzBIXndVwFbN/scene.splinecode" />
+        </div>
+      )}
+    </div>
   );
 }
