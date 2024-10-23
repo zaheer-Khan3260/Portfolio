@@ -23,6 +23,6 @@
     "target": "es2015",
     "downlevelIteration": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/ui/typing-animation.jsx"],
   "exclude": ["node_modules"]
 }

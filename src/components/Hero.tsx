@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Spline from "@splinetool/react-spline";
-import TypingAnimation from "@/components/ui/typing-animation.tsx";
+import TypingAnimation from "@/components/ui/typingAnimation";
 import Loading from "../components/Loading/Loading.jsx";
 
 export default function Hero() {
