@@ -3,7 +3,6 @@ import React from "react";
 import Spline from "@splinetool/react-spline";
 import TypingAnimation from "@/components/ui/typing-animation.tsx";
 import Loading from "../components/Loading/Loading.jsx";
-import { TbBrandTypescript } from "react-icons/tb";
 
 export default function Hero() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -14,11 +13,12 @@ export default function Hero() {
   // }, []);
 
   return (
-    <div className="h-screen bg-[#000319] flex items-center justify-center">
+    <div className="h-[calc(100vh-7rem)] bg-[#000319] flex items-center justify-center">
       {isLoading ? (
         <Loading />
       ) : (
         <div className="w-full h-screen relative">
+          <div className="w-36 bg-[#000319] h-10 absolute bottom-5 right-4"></div>
           <div className=" rounded-xl text-white text-xl w-[23rem] h-[18rem] z-0 absolute top-[10rem] left-1/2 transform translate-x-[18rem] bg-[#22272E] bg-opacity-60">
             <div className="w-full h-12 bg-[#2F343A] flex items-center rounded-t-lg ">
               <div className="h-4 w-4 rounded-full bg-red-500 ml-2"></div>
